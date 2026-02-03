@@ -8,6 +8,12 @@ app.get("/",(_req,res)=>{
 
 });
 
+app.get("/upload-resume",(_req,res)=>{
+		res.json({message:"your resume upload will use this api " })
+})
+
+
+
 app.listen(PORT,()=>{
 		console.log(`Server is running on ${PORT}`)
 });
