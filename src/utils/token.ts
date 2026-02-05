@@ -8,7 +8,7 @@ export function signToken(payload) {
   });
 }
 
-export function verifyToken(req) {
-  const token = req.headers.authorization?.split(" ")[1];
-  return jwt.verify(token, jwtConfig.secret);
+export function verifyToken(token,jwtSecret) {
+  
+  return jwt.verify(token, jwtSecret);
 }
