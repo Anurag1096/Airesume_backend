@@ -1,0 +1,11 @@
+import { z } from "zod";
+
+export const env = z.object({
+  NODE_ENV: z.enum(["development", "production", "test"]),
+  JWT_SECRET: z.string().min(32),
+  DB_HOST: z.string(),
+  DB_PORT: z.coerce.number(),
+  DB_USER: z.string(),
+  DB_PASSWORD: z.string(),
+  DB_NAME: z.string(),
+}).parse(process.env);
