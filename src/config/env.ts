@@ -8,4 +8,7 @@ export const env = z.object({
   DB_USER: z.string(),
   DB_PASSWORD: z.string(),
   DB_NAME: z.string(),
+  DB_CONN_TIMEOUT:z.string(),
+  DB_MAX_POOL:z.string(),
+  DB_IDLE_TIMEOUT:z.string(),
 }).parse(process.env);

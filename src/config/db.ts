@@ -8,9 +8,9 @@ export const pool =new Pool({
     password:env.DB_PASSWORD,
     database:env.DB_NAME,
     ssl:env.NODE_ENV === "production"?{rejectUnauthorized:false}:false,
-    max:10,
-    idleTimeoutMillis: 30_000,
-    connectionTimeoutMillis: 5_000
+    max:Number(env.DB_MAX_POOL) || 20,
+    idleTimeoutMillis: Number(env.DB_IDLE_TIMEOUT) ||30_000,
+    connectionTimeoutMillis:Number(env.DB_CONN_TIMEOUT)  ||  5_000
 
 })
 
