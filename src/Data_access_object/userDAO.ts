@@ -22,5 +22,41 @@ export const userDAO={
         }catch(err){
             throw new Error("email not found"+ err)
         }
-    }
+    },
+    findAll:async()=>{
+        try{
+
+        }catch(err){
+         throw new Error("Could not find all the records")
+        }
+    },
+    updateById:async()=>{
+        try{
+
+        }catch(error){
+            console.error(error)
+            throw new Error("Could not updata the record")
+        }
+    },
+    countUsers:async()=>{
+        try{
+
+        }catch(error){
+            throw new Error("counting users failed")
+        }
+    },
+    deleteUser:async ()=>{
+        try{
+
+        }catch(error){
+
+        }
+    },
+    updatePassword:async()=>{
+        try{
+
+        }catch(error){
+
+        }
+    },
 }
