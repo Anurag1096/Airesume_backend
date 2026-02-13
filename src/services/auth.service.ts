@@ -1,7 +1,7 @@
 // services/auth.service.js
 import { signToken } from "../utils/token.ts";
 
-export async function login({ email, password }) {
+export async function login({name, email, password }) {
   // 1. Validate user (DB, hash compare, etc.)
   const user = { id: 1, email }; // mock
 

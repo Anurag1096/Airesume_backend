@@ -1,10 +1,20 @@
 import { UserData } from "./userType"
-
+import { pool } from "../config/db"
 export const userDAO={
     Create:async(userInfo:UserData)=>{
         try{
+            const {name,email,password}=userInfo
             //call db with the required data
-        }catch(error){
+            const result=await pool.query(`
+                INSERT INTO users(name,email,password)
+                VALUES($1,$2,$3)
+                RETURNING id,name,email, created_at,
+                `,[name,email,password])
+
+              return result.rows[0]  
+        }catch(error:any){
+           if(error.code === "23505")  throw new Error("Email allready exists.") 
+
             throw new Error("Could not create user" + error)
         }
     },
@@ -45,7 +55,7 @@ export const userDAO={
             throw new Error("counting users failed")
         }
     },
-    deleteUser:async ()=>{
+    deleteById:async ()=>{
         try{
 
         }catch(error){
